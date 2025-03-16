@@ -21,7 +21,6 @@ NEGATIVE_PROMPT = 'extra digit, fewer digits, cropped, worst quality, low qualit
 
 class BasicCMC:
     def __init__(self, args):
-        # Load your big model here
         self.args = args
         self.init_models()
         self.ref_image = None
@@ -171,7 +170,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--image_src','-i', default=None)
-    parser.add_argument('--poseq_src','-e',default=None,help='custom edge detection images, won\'t save the edge images if provided')
+    parser.add_argument('--poseq_src','-p',default=None,help='custom pose detection images, won\'t save the pose images if provided')
     parser.add_argument('--text_src','-t', default=None,help='custom captions, won\'t save the text if provided')
     parser.add_argument('--out_image_dir','-o', default='output')
 
@@ -210,9 +209,13 @@ if __name__ == '__main__':
             os.makedirs(layer3_outdir)
 
     if args.poseq_src is None:
-        edge_outdir = os.path.join(args.out_image_dir, 'edge')
-        if not os.path.exists(edge_outdir):
-            os.makedirs(edge_outdir)
+        pose_outdir = os.path.join(args.out_image_dir, 'pose')
+        if not os.path.exists(pose_outdir):
+            os.makedirs(pose_outdir)
+        if not os.path.exists(os.path.join(pose_outdir,"image")):
+            os.makedirs(os.path.join(pose_outdir,"image"))
+        if not os.path.exists(os.path.join(pose_outdir,"text")):
+            os.makedirs(os.path.join(pose_outdir,"text"))
     if args.text_src is None and args.custom_prompts is None:
         text_outdir = os.path.join(args.out_image_dir,'text')
         if not os.path.exists(text_outdir):

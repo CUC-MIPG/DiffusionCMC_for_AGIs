@@ -1,6 +1,6 @@
 ### Stable Diffusion is a Natural Cross-Modal Decoder for Layered AI-generated Image Compression  (DCC 2025)
 
-This repository is the official implementation of paper *Stable Diffusion is a Natural Cross-Modal Decoder for Layered AI-generated Image Compression*.
+This repository is the official implementation of *Stable Diffusion is a Natural Cross-Modal Decoder for Layered AI-generated Image Compression*.
 
 [Ruijie Chen](https://deoxyribonucleic-acid.github.io/), [Qi Mao](https://sites.google.com/view/qi-mao/), [Zhengxue Cheng](https://medialab.sjtu.edu.cn/author/zhengxue-cheng/)
 
@@ -71,13 +71,13 @@ To reconstruct imags with pre-generated keypoints or text prompts, run:
 python CMC_skeleton.py -i <PATH_TO_INPUT_IMAGES> \
                     -o <PATH_TO_OUTUT_IMAGES> \
                     -t <PATH_TO_TEXT_FILES> \
-                    -p <PATH_TO_EDGE_IMAGES>
+                    -p <PATH_TO_KP_IMAGES>
 ```
 
 ## Run image editing
 Run `editing.ipynb` for image editing task.
 
-You might need to modify the paths for inputs and outputs in `dirs` class: 
+You might need to modify the paths for inputs and outputs in class `dirs`: 
 ```python
 # replace with your paths
 class dirs:
@@ -85,14 +85,14 @@ class dirs:
         self.image_src = "PATH_TO_SOURCE_IMAGE"
         self.text_src = "PATHS_TO_TEXT_FILE"
         self.structure_src = [
-            "PATHS_TO_EDGE_IMAGES"
+            "PATHS_TO_STRUCTURE_IMAGES"
         ]
         self.color_src = [
             "PATHS_TO_COLOR_IMAGES"
         ]
         self.out_dir = "PATH_TO_OUTPUT_DIR"
 ```
-
+This script uses edge maps as structure images by default. Specify ``self.use_skeleton = True`` in class `args` to use keypoints as structure images.
 
 ## Citation 
 
