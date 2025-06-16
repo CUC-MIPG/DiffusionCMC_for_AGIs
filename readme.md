@@ -97,13 +97,15 @@ This script uses edge maps as structure images by default. Specify ``self.use_sk
 ## Citation 
 
 ```
-@misc{chen2024stablediffusionnaturalcrossmodal,
-      title={Stable Diffusion is a Natural Cross-Modal Decoder for Layered AI-generated Image Compression}, 
-      author={Ruijie Chen and Qi Mao and Zhengxue Cheng},
-      year={2024},
-      eprint={2412.12982},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV},
-      url={https://arxiv.org/abs/2412.12982}, 
+@INPROCEEDINGS{chen2024stable,
+  author={Chen, Ruijie and Mao, Qi and Cheng, Zhengxue},
+  booktitle={2025 Data Compression Conference (DCC)}, 
+  title={Stable Diffusion is a Natural Cross-Modal Decoder for Layered AI-Generated Image Compression}, 
+  year={2025},
+  pages={361-361},
+  doi={10.1109/DCC62719.2025.00049}
 }
-``` 
+```
+
+
+
